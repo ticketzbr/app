@@ -33,14 +33,14 @@ class EditAttendeeAction extends BaseAction
                 'first_name' => $request->input('first_name'),
                 'last_name' => $request->input('last_name'),
                 'email' => $request->input('email'),
-                'ticket_id' => $request->input('ticket_id'),
-                'ticket_price_id' => $request->input('ticket_price_id'),
+                'product_id' => $request->input('product_id'),
+                'product_price_id' => $request->input('product_price_id'),
                 'event_id' => $eventId,
                 'attendee_id' => $attendeeId,
             ]));
         } catch (NoTicketsAvailableException $exception) {
             throw ValidationException::withMessages([
-                'ticket_id' => $exception->getMessage(),
+                'product_id' => $exception->getMessage(),
             ]);
         }
 
