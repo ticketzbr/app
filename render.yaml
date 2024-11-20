@@ -4,3 +4,7 @@ services:
     plan: free
     autoDeploy: false
     runtime: docker
+
+databases:
+  - name: ticketz-db
+    plan: free
