@@ -1,7 +1,7 @@
 import {Anchor, Avatar, Badge, Button, Table as MantineTable,} from '@mantine/core';
 import {Attendee, MessageType} from "../../../types.ts";
 import {IconEye, IconMailForward, IconPencil, IconPlus, IconSend, IconTrash} from "@tabler/icons-react";
-import {getInitials, getTicketFromEvent} from "../../../utilites/helpers.ts";
+import {getInitials, getProductFromEvent} from "../../../utilites/helpers.ts";
 import {Table, TableHead} from "../Table";
 import {useDisclosure} from "@mantine/hooks";
 import {SendMessageModal} from "../../modals/SendMessageModal";
@@ -18,7 +18,7 @@ import {t, Trans} from "@lingui/macro";
 import {confirmationDialog} from "../../../utilites/confirmationDialog.tsx";
 import {useResendAttendeeTicket} from "../../../mutations/useResendAttendeeTicket.ts";
 import {ViewAttendeeModal} from "../../modals/ViewAttendeeModal";
-import {ActionMenu} from '../ActionMenu/index.tsx';
+import {ActionMenu} from '../ActionMenu';
 
 interface AttendeeTableProps {
     attendees: Attendee[];
@@ -146,7 +146,7 @@ export const AttendeeTable = ({attendees, openCreateModal}: AttendeeTableProps) 
                                 </MantineTable.Td>
                                 <MantineTable.Td>
                                     <Truncate
-                                        text={getTicketFromEvent(attendee.ticket_id, event)?.title}
+                                        text={getProductFromEvent(attendee.product_id, event)?.title}
                                         length={25}
                                     />
                                 </MantineTable.Td>
